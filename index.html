@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1220"><link rel="manifest" href="./manifest.webmanifest"><meta name="mobile-web-app-capable" content="yes">
+<title>TradeLens AI — Quotex Signal Lab</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#131e31;--line:#293852;--txt:#eef4ff;--muted:#9cacc6;--green:#27d6a0;--red:#ff657d;--blue:#65a8ff;--amber:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#172746 0,#0b1220 55%);color:var(--txt);font:15px system-ui,-apple-system,Arial,sans-serif}main{max-width:700px;margin:auto;padding:16px 14px 30px}.top{display:flex;align-items:center;gap:12px;margin:8px 0 18px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#27d6a0,#65a8ff);color:#081324;display:grid;place-items:center;font-weight:950;font-size:20px}.title{font-size:22px;font-weight:850}.sub,.muted{color:var(--muted);font-size:12px}.status{margin-left:auto;background:#302a19;color:var(--amber);padding:6px 9px;border-radius:99px;font-size:11px;white-space:nowrap}.panel{background:#131e31ed;border:1px solid var(--line);border-radius:18px;padding:15px;margin:12px 0;box-shadow:0 12px 28px #0002}.heading{font-weight:800;font-size:16px;margin-bottom:12px}.row{display:flex;gap:9px;flex-wrap:wrap}.field{flex:1;min-width:100px;margin-bottom:10px}label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}input,select,button{width:100%;min-width:0;border:1px solid #35445f;background:#0c1526;color:var(--txt);border-radius:11px;padding:12px;font:inherit}button{border:0;background:linear-gradient(100deg,#27d6a0,#65a8ff);color:#071423;font-weight:850;cursor:pointer;margin-top:5px}.secondary{background:#202d43;color:#e8efff;border:1px solid #34445e}.warning{background:#302719;border:1px solid #6a5229;border-radius:12px;padding:11px;color:#ffe0a1;font-size:12px;line-height:1.5}.statusline{display:flex;justify-content:space-between;gap:8px;align-items:center}.pill{font-size:11px;padding:5px 8px;border-radius:99px;background:#263650;color:#cbdcff}.green{color:var(--green)}.red{color:var(--red)}.signal{font-size:24px;font-weight:900;margin:10px 0 4px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{padding:11px;background:#0b1425;border:1px solid #202e46;border-radius:12px}.metric small{display:block;color:var(--muted);font-size:11px}.metric b{display:block;font-size:18px;margin-top:4px}.bar{height:7px;background:#2a3850;border-radius:99px;overflow:hidden;margin:10px 0}.bar span{display:block;height:100%;background:linear-gradient(90deg,#27d6a0,#65a8ff)}.preview{width:100%;max-height:250px;object-fit:contain;background:#08101e;border:1px dashed #35445f;border-radius:12px;margin-top:8px;display:none}.tiny{font-size:11px;line-height:1.55;color:var(--muted)}ul{padding-left:20px;line-height:1.7}footer{text-align:center;color:var(--muted);font-size:11px;padding:10px}
+</style></head>
+<body><main>
+<header class="top"><div class="logo">TL</div><div><div class="title">TradeLens AI</div><div class="sub">Quotex • Binary / OTC • Signal Lab</div></div><div class="status">DEMO MODE</div></header>
+<section class="panel">
+ <div class="statusline"><div class="heading">১. মার্কেট সেটআপ</div><span class="pill">শুধু বিশ্লেষণ</span></div>
+ <div class="row"><div class="field"><label>পেয়ার</label><select id="asset"><option>EUR/USD OTC</option><option>GBP/USD OTC</option><option>USD/JPY OTC</option><option>AUD/USD OTC</option><option>BTC/USDT</option><option>Other</option></select></div><div class="field"><label>টাইমফ্রেম</label><select id="tf"><option>1 মিনিট</option><option selected>5 মিনিট</option><option>15 মিনিট</option></select></div></div>
+ <div class="warning">লাইভ Quotex ফিড সংযুক্ত নয়। নিচের মানগুলো চার্ট থেকে নিজে বসাতে হবে। এই ডেমো নিজে থেকে Quotex-এর দাম পড়ে না এবং ট্রেড করে না।</div>
+</section>
+<section class="panel">
+ <div class="heading">২. চার্ট স্ক্রিনশট (ঐচ্ছিক)</div>
+ <label for="shot">ফোনে চার্টের স্ক্রিনশট বেছে নিন</label><input id="shot" type="file" accept="image/*">
+ <img id="preview" class="preview" alt="আপলোড করা চার্টের প্রিভিউ">
+ <div class="tiny">স্ক্রিনশট এখানে শুধু দেখা যাবে; এই অফলাইন ডেমো ছবিটি AI সার্ভারে পাঠিয়ে স্বয়ংক্রিয়ভাবে পড়তে পারে না।</div>
+</section>
+<section class="panel">
+ <div class="heading">৩. চার্টের মান লিখুন</div>
+ <div class="row"><div class="field"><label>বর্তমান দাম</label><input id="price" type="number" step="any" value="1.0850"></div><div class="field"><label>EMA 20</label><input id="e20" type="number" step="any" value="1.0845"></div><div class="field"><label>EMA 50</label><input id="e50" type="number" step="any" value="1.0838"></div></div>
+ <div class="row"><div class="field"><label>RSI (0–100)</label><input id="rsi" type="number" min="0" max="100" value="56"></div><div class="field"><label>সাপোর্ট</label><input id="sup" type="number" step="any" value="1.0820"></div><div class="field"><label>রেজিস্ট্যান্স</label><input id="res" type="number" step="any" value="1.0880"></div></div>
+ <button onclick="analyze()">বিশ্লেষণ ও সিগন্যাল দেখুন</button>
+ <button class="secondary" onclick="resetDemo()">ডেমো মান ফিরিয়ে আনুন</button>
+</section>
+<section class="panel" id="out" aria-live="polite"><div class="heading">৪. বিশ্লেষণের ফলাফল</div><div class="muted">উপরের বোতাম চাপুন।</div></section>
+<section class="panel"><div class="heading">পরবর্তী সংস্করণে লাইভ করার জন্য</div><ul class="tiny"><li>অনুমোদিত ও নির্ভরযোগ্য মার্কেট-ডেটা উৎস বা API লাগবে।</li><li>OTC-এর কোট অন্য বাজারের দামের সঙ্গে নাও মিলতে পারে।</li><li>সিগন্যাল কেবল সম্ভাবনা দেখায়; লাভ নিশ্চিত করে না।</li><li>এই সংস্করণে লগইন, টাকা জমা, অটো-ট্রেড বা পাসওয়ার্ড সংরক্ষণ নেই।</li></ul></section>
+<footer>TradeLens AI prototype • আর্থিক পরামর্শ নয় • বাস্তব টাকার আগে ডেমোতে পরীক্ষা করুন</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+$('shot').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const u=URL.createObjectURL(f);$('preview').src=u;$('preview').style.display='block';});
+function analyze(){
+ const p=+$('price').value,a=+$('e20').value,b=+$('e50').value,r=+$('rsi').value,s=+$('sup').value,z=+$('res').value;
+ if(![p,a,b,r,s,z].every(Number.isFinite)||p<=0||a<=0||b<=0||r<0||r>100||s<=0||z<=0||z<=s){alert('সব ঘরে সঠিক সংখ্যা দিন; রেজিস্ট্যান্স সাপোর্টের চেয়ে বেশি হতে হবে।');return}
+ let score=0,why=[];
+ if(p>a){score++;why.push('দাম EMA 20-এর ওপরে।')}else{score--;why.push('দাম EMA 20-এর নিচে।')}
+ if(a>b){score++;why.push('EMA 20, EMA 50-এর ওপরে।')}else{score--;why.push('EMA 20, EMA 50-এর নিচে।')}
+ if(r>=50&&r<70){score++;why.push('RSI 50–70: মোমেন্টাম তুলনামূলক ইতিবাচক।')}else if(r>30&&r<50){score--;why.push('RSI 30–50: মোমেন্টাম তুলনামূলক দুর্বল।')}else if(r>=70){why.push('RSI 70 বা বেশি: অতিরিক্ত কেনার ঝুঁকি।')}else{why.push('RSI 30 বা কম: অতিরিক্ত বিক্রির সম্ভাবনা।')}
+ let name=score>=2?'সম্ভাব্য CALL পক্ষ':score<=-2?'সম্ভাব্য PUT পক্ষ':'অপেক্ষা / নিরপেক্ষ',cls=score>=2?'green':score<=-2?'red':'',bias=score>=2?'বুলিশ':score<=-2?'বেয়ারিশ':'মিশ্র সংকেত';
+ const supPct=(p-s)/p*100,resPct=(z-p)/p*100;
+ $('out').innerHTML=`<div class="heading">৪. বিশ্লেষণের ফলাফল</div><div class="muted">${$('asset').value} • ${$('tf').value}</div><div class="signal ${cls}">${name}</div><span class="pill">${bias}</span><div class="bar"><span style="width:${Math.max(8,Math.min(100,(score+3)/6*100))}%"></span></div><div class="grid"><div class="metric"><small>ট্রেন্ড স্কোর</small><b>${score>0?'+':''}${score}/3</b></div><div class="metric"><small>RSI</small><b>${r}</b></div><div class="metric"><small>সাপোর্ট থেকে দূরত্ব</small><b>${supPct.toFixed(3)}%</b></div><div class="metric"><small>রেজিস্ট্যান্স থেকে দূরত্ব</small><b>${resPct.toFixed(3)}%</b></div></div><div class="heading" style="margin-top:16px">সিগন্যালের কারণ</div><ul>${why.map(t=>'<li>'+t+'</li>').join('')}</ul><div class="warning">এটি নিয়মভিত্তিক ডেমো—AI পূর্বাভাস বা লাইভ ডেটা নয়। ক্যান্ডেল বন্ধ হওয়া, OTC মূল্য, বাজারের অবস্থা ও মেয়াদ যাচাই করুন। CALL/PUT সিগন্যাল নিশ্চিত ফলাফল নয়; পুরো স্টেক হারানোর ঝুঁকি আছে।</div>`;
+}
+function resetDemo(){$('price').value='1.0850';$('e20').value='1.0845';$('e50').value='1.0838';$('rsi').value='56';$('sup').value='1.0820';$('res').value='1.0880';analyze()}
+analyze();
+</script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script></body></html>
